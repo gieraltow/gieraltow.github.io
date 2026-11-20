@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ru" data-lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Николай Хохлов — резюме</title>
+<meta name="description" content="Николай Хохлов — студент 1 курса ИВТ (УрФУ). Machine Learning, NLP. Ищу стажировку.">
+<style>
+  :root{
+    --bg:#fff; --fg:#14142b; --muted:#6e6e85; --line:#e8e8ef;
+    --accent:#8c1c3c;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--fg);
+    font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent); text-decoration:none}
+  a:hover{text-decoration:underline; text-underline-offset:3px}
+
+  /* language switching */
+  html[data-lang="ru"] .en{display:none !important}
+  html[data-lang="en"] .ru{display:none !important}
+
+  .wrap{max-width:780px; margin:0 auto; padding:28px 24px 72px}
+
+  .topbar{display:flex; justify-content:flex-end; gap:8px; margin-bottom:40px}
+  .seg{display:inline-flex; border:1px solid var(--line); border-radius:8px; padding:2px}
+  .seg button{
+    font:inherit; font-size:13px; font-weight:600; letter-spacing:.04em;
+    border:0; background:transparent; color:var(--muted);
+    padding:4px 12px; border-radius:6px; cursor:pointer;
+  }
+  .seg button[aria-pressed="true"]{background:var(--accent); color:#fff}
+  .seg button:focus-visible, .pdf:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+  .pdf{
+    font:inherit; font-size:13px; font-weight:600; color:var(--muted);
+    border:1px solid var(--line); background:#fff; border-radius:8px;
+    padding:5px 12px; cursor:pointer;
+  }
+  .pdf:hover{color:var(--accent); border-color:var(--accent)}
+
+  /* header */
+  header{padding-bottom:32px}
+  .hero{display:flex; gap:30px; align-items:center}
+  .hero-text{min-width:0}
+  .photo{
+    width:150px; height:auto; aspect-ratio:3/4; flex:none; border-radius:16px; object-fit:contain;
+    box-shadow:0 0 0 3px #fff, 0 0 0 5px var(--accent);
+  }
+  header h1{
+    font-size:clamp(34px,6.5vw,46px); line-height:1.1; margin:0 0 12px;
+    letter-spacing:-.025em; font-weight:750;
+  }
+  header h1::after{
+    content:""; display:block; width:48px; height:5px; margin-top:14px;
+    background:var(--accent); border-radius:3px;
+  }
+  .tagline{font-size:18px; color:var(--muted); margin:0 0 18px}
+  .status{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:14px; font-weight:600; color:#0f6b3d; background:#e3f6ec;
+    padding:5px 12px; border-radius:6px; margin-bottom:20px;
+  }
+  .dot{width:8px; height:8px; border-radius:50%; background:#1fb36a; flex:none}
+  .contacts{display:flex; flex-wrap:wrap; gap:6px 20px; font-size:15px}
+  .contacts .k{color:var(--muted); margin-right:6px}
+
+  /* sections: no boxes, just a hairline and a coloured label */
+  section{
+    display:grid; grid-template-columns:170px 1fr; gap:8px 32px;
+    padding:26px 0; border-top:1px solid var(--line);
+  }
+  h2{
+    margin:5px 0 0; font-size:12px; font-weight:700;
+    letter-spacing:.12em; text-transform:uppercase; color:var(--accent);
+  }
+  section > div > *:first-child{margin-top:0}
+  p{margin:0 0 12px}
+  .item{margin-bottom:16px}
+  .item:last-child{margin-bottom:0}
+  .row{display:flex; justify-content:space-between; gap:16px; align-items:baseline; flex-wrap:wrap}
+  .row strong{font-weight:650}
+  .date{color:var(--muted); font-size:14px; white-space:nowrap}
+  .sub{color:var(--muted); font-size:15px; margin:2px 0 0}
+  ul{margin:8px 0 0; padding-left:20px}
+  li{margin-bottom:6px}
+  li::marker{color:var(--accent)}
+
+  dl.skills{margin:0; display:grid; grid-template-columns:150px 1fr; gap:10px 16px; align-items:start}
+  dl.skills dt{color:var(--muted); font-size:15px; padding-top:2px}
+  dl.skills dd{margin:0; display:flex; flex-wrap:wrap; gap:6px}
+
+  /* flat coloured tags */
+  .chip{border-radius:6px; padding:2px 10px; font-size:14px; font-weight:550; background:#f8e3ea; color:#8c1c3c}
+  .c-violet{background:#efe8ff; color:#5b2fc9}
+  .c-teal{background:#d9f5ef; color:#0a7566}
+  .c-amber{background:#ffeccc; color:#955500}
+  .c-blue{background:#e4ecfa; color:#25508f}
+  .c-green{background:#dff5e8; color:#13703d}
+  .chip.soft{background:#fff; box-shadow:inset 0 0 0 1.5px #f0b04a; color:#955500}
+
+  @media (max-width:640px){
+    .hero{flex-direction:column; align-items:flex-start; gap:20px}
+    .photo{width:132px}
+    section{grid-template-columns:1fr; gap:10px}
+    dl.skills{grid-template-columns:1fr; gap:4px}
+    dl.skills dd{margin-bottom:10px}
+  }
+
+  /* print / "Save as PDF" */
+  @media print{
+    @page{size:A4; margin:13mm}
+    body{font-size:10pt; line-height:1.4}
+    .wrap{padding:0; max-width:none}
+    .topbar{display:none}
+    header{padding-bottom:14px}
+    .hero{gap:22px}
+    .photo{width:92px; border-radius:10px}
+    header h1{font-size:28pt; margin-bottom:8px}
+    header h1::after{margin-top:8px}
+    .tagline{font-size:12pt; margin-bottom:10px}
+    .status{margin-bottom:12px}
+    section{padding:10px 0; break-inside:avoid; grid-template-columns:130px 1fr; gap:6px 20px}
+    dl.skills{gap:6px 14px}
+    p{margin-bottom:6px}
+    li{margin-bottom:3px}
+    a{color:inherit}
+    *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="seg" role="group" aria-label="Language / Язык">
+      <button type="button" data-set="ru" aria-pressed="true">RU</button>
+      <button type="button" data-set="en" aria-pressed="false">EN</button>
+    </div>
+    <button type="button" class="pdf" onclick="window.print()">
+      <span class="ru">Сохранить в PDF</span><span class="en">Save as PDF</span>
+    </button>
+  </div>
+
+  <header>
+   <div class="hero">
+    <img class="photo" src="photo.jpg" alt="Николай Хохлов">
+    <div class="hero-text">
+    <h1><span class="ru">Николай Хохлов</span><span class="en">Nikolay Khokhlov</span></h1>
+    <p class="tagline">
+      <span class="ru">Студент 1 курса ИВТ · Machine Learning · NLP</span>
+      <span class="en">1st-year Computer Science student · Machine Learning · NLP</span>
+    </p>
+    <div class="status">
+      <i class="dot"></i>
+      <span class="ru">Ищу стажировку в направлении ML / Data Science</span>
+      <span class="en">Looking for an ML / Data Science internship</span>
+    </div>
+    <div class="contacts">
+      <a href="mailto:gieraltovv@gmail.com"><span class="k">Email:</span>gieraltovv@gmail.com</a>
+      <a href="https://t.me/odsjwkskf"><span class="k">Telegram:</span>@odsjwkskf</a>
+      <a href="https://github.com/gieraltow"><span class="k">GitHub:</span>gieraltow</a>
+    </div>
+    </div>
+   </div>
+  </header>
+
+  <section>
+    <h2><span class="ru">О себе</span><span class="en">About</span></h2>
+    <div>
+      <p class="ru">Уверенно работаю с классическими ML-моделями на Python, сейчас осваиваю глубокое обучение и NLP на PyTorch. Интересуюсь прикладными задачами на стыке машинного обучения, анализа данных и экономики. Ищу стажировку или позицию Junior ML Engineer / Data Scientist.</p>
+      <p class="en">I am confident working with classical machine learning models in Python and am currently learning deep learning and NLP with PyTorch. I am interested in applied problems at the intersection of machine learning, data analysis, and economics. I am seeking an internship or a Junior ML Engineer / Data Scientist position.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="ru">Образование</span><span class="en">Education</span></h2>
+    <div>
+      <div class="item">
+        <div class="row">
+          <strong class="ru">Уральский федеральный университет (УрФУ)</strong>
+          <strong class="en">Ural Federal University (UrFU)</strong>
+          <span class="date"><span class="ru">2026 — н. в.</span><span class="en">2026 — present</span></span>
+        </div>
+        <p class="sub ru">ИРИТ-РтФ · бакалавриат, 09.03.01 «Информатика и вычислительная техника», 1 курс</p>
+        <p class="sub en">Institute of Radio Electronics and IT (IRIT-RtF) · Bachelor's, 09.03.01 Informatics and Computer Engineering, year 1</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="ru">Навыки</span><span class="en">Skills</span></h2>
+    <dl class="skills">
+      <dt><span class="ru">Языки</span><span class="en">Languages</span></dt>
+      <dd><span class="chip">Python</span><span class="chip">Bash</span></dd>
+
+      <dt><span class="ru">Данные и ML</span><span class="en">Data &amp; ML</span></dt>
+      <dd><span class="chip c-teal">NumPy</span><span class="chip c-teal">pandas</span><span class="chip c-teal">scikit-learn</span></dd>
+
+      <dt><span class="ru">Модели</span><span class="en">Models</span></dt>
+      <dd>
+        <span class="chip c-violet ru">Деревья решений</span><span class="chip c-violet en">Decision trees</span>
+        <span class="chip c-violet ru">Регрессии</span><span class="chip c-violet en">Regression</span>
+        <span class="chip c-violet ru">Бэггинг</span><span class="chip c-violet en">Bagging</span>
+        <span class="chip c-violet ru">Бустинг</span><span class="chip c-violet en">Boosting</span>
+      </dd>
+
+      <dt><span class="ru">Изучаю</span><span class="en">Learning</span></dt>
+      <dd>
+        <span class="chip soft">PyTorch</span>
+        <span class="chip soft ru">Глубокое обучение</span><span class="chip soft en">Deep learning</span>
+        <span class="chip soft">NLP</span>
+      </dd>
+
+      <dt><span class="ru">Инструменты</span><span class="en">Tools</span></dt>
+      <dd><span class="chip c-blue">Git</span><span class="chip c-blue">Linux / Bash</span></dd>
+
+      <dt><span class="ru">Интересы</span><span class="en">Interests</span></dt>
+      <dd>
+        <span class="chip c-green">Machine Learning</span>
+        <span class="chip c-green ru">Экономика</span><span class="chip c-green en">Economics</span>
+      </dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2><span class="ru">Практика</span><span class="en">Practice</span></h2>
+    <div>
+      <ul class="ru">
+        <li>Решаю учебные ML-задачи на Kaggle и других датасетах: работа с данными в pandas, обучение и оценка моделей в scikit-learn</li>
+        <li>Сейчас изучаю глубокое обучение и NLP: осваиваю PyTorch и основы нейронных сетей</li>
+      </ul>
+      <ul class="en">
+        <li>Solving educational ML tasks on Kaggle and other datasets: data handling with pandas, training and evaluating models with scikit-learn</li>
+        <li>Currently studying deep learning and NLP: getting to grips with PyTorch and neural network fundamentals</li>
+      </ul>
+      <!--
+        Когда появится первый проект — раскомментируй и заполни:
+        <div class="item">
+          <div class="row"><strong>Название проекта</strong><a href="https://github.com/gieraltow/репозиторий">GitHub</a></div>
+          <p class="sub">Что делает, на каких данных, какими моделями, какой результат (метрика).</p>
+        </div>
+      -->
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="ru">Достижения</span><span class="en">Achievements</span></h2>
+    <div>
+      <ul class="ru">
+        <li>Участник заключительного этапа олимпиады ОММО</li>
+        <li>Участник заключительного этапа олимпиады «Физтех»</li>
+        <li>ЕГЭ: информатика — 95 баллов, физика — 76 баллов</li>
+      </ul>
+      <ul class="en">
+        <li>Unified State Exam (EGE): Computer Science — 95/100, Physics — 76/100</li>
+        <li>Participant in the final round of the OMMO Olympiad</li>
+        <li>Participant in the final round of the Phystech Olympiad</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="ru">Конференции</span><span class="en">Conferences</span></h2>
+    <div>
+      <ul class="ru">
+        <li>Участник XXI Международной конференции «Российские регионы в фокусе перемен»</li>
+        <li>Участник Young Con 2026</li>
+      </ul>
+      <ul class="en">
+        <li>Participant, XXI International conference "Russian Regions in the Focus of Change"</li>
+        <li>Participant, Yandex Young Con 2026</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="ru">Языки</span><span class="en">Languages</span></h2>
+    <dl class="skills">
+      <dt><span class="ru">Русский</span><span class="en">Russian</span></dt>
+      <dd><span class="chip c-green">Native</span></dd>
+      <dt><span class="ru">Английский</span><span class="en">English</span></dt>
+      <dd><span class="chip c-green">C1</span></dd>
+      <dt><span class="ru">Испанский</span><span class="en">Spanish</span></dt>
+      <dd><span class="chip c-green">B1</span></dd>
+    </dl>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var buttons = document.querySelectorAll('[data-set]');
+
+  function detect() {
+    var q = /[?&]lang=(ru|en)/.exec(location.search);
+    if (q) return q[1];
+    try { var s = localStorage.getItem('lang'); if (s === 'ru' || s === 'en') return s; } catch (e) {}
+    return (navigator.language || 'ru').toLowerCase().indexOf('ru') === 0 ? 'ru' : 'en';
+  }
+
+  function setLang(l, remember) {
+    root.setAttribute('data-lang', l);
+    root.lang = l;
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].setAttribute('aria-pressed', buttons[i].getAttribute('data-set') === l ? 'true' : 'false');
+    }
+    var name = document.querySelector('h1 .' + l);
+    document.title = (name ? name.textContent : '') + (l === 'ru' ? ' — резюме' : ' — résumé');
+    if (remember) { try { localStorage.setItem('lang', l); } catch (e) {} }
+  }
+
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function () { setLang(this.getAttribute('data-set'), true); });
+  }
+  setLang(detect(), false);
+})();
+</script>
+</body>
+</html>
